@@ -1,28 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
 import characters from '../data/characters.data'
-import { CharacterSelectionLink } from '../elements/links'
-
-const StyledCharacterSelection = styled.section`
-	border: 1px solid red;
-	height: 90vh;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-`
+import Link from '../components/Link'
+import { Box } from '@chakra-ui/core'
 
 const CharacterSelection = ({ match }) => (
-	<StyledCharacterSelection>
+	<Box d="flex" flexDirection="column" h="90vh" border="1px solid red">
 		<h1>Select your character</h1>
 		{characters.map(character => (
-			<CharacterSelectionLink
-				key={character.class}
-				to={`${match.path}/${character.class}`}
-			>
-				{character.displayName}
-			</CharacterSelectionLink>
+			<Link to={`${match.path}/${character.class}`}>{character.displayName}</Link>
 		))}
-	</StyledCharacterSelection>
+	</Box>
 )
 
 export default CharacterSelection

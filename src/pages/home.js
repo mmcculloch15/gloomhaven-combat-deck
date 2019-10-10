@@ -1,20 +1,13 @@
 import React from 'react'
-import { PrimaryLink } from '../elements/links'
-import styled from 'styled-components'
-
-const StyledHome = styled.section`
-	display: flex;
-	flex-direction: column;
-	height: 100px;
-	justify-content: space-between;
-`
+import { Box } from '@chakra-ui/core'
+import Link from '../components/Link'
 
 const HomePage = ({ activeDeck }) => (
-	<StyledHome>
+	<Box d="flex" h="100px" flexDirection="column" justifyContent="space-between">
 		App!
-		{activeDeck !== '' ? <PrimaryLink to="/deck">Active Deck</PrimaryLink> : null}
-		<PrimaryLink to="/characters">Characters</PrimaryLink>
-	</StyledHome>
+		{activeDeck !== '' ? <Link to="/deck">Active Deck</Link> : null}
+		<Link to="/characters">Characters</Link>
+	</Box>
 )
 
 export default HomePage

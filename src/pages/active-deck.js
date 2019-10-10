@@ -1,18 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import { PrimaryLink } from '../elements/links'
-
-const StyledActiveDeckPage = styled.section`
-	border: 1px solid blue;
-	height: 90vh;
-`
+import Link from '../components/Link'
+import { Box } from '@chakra-ui/core'
 
 const ActiveDeckPage = ({ activeDeck }) => (
-	<StyledActiveDeckPage>
+	<Box h="90vh" border="1px solid blue">
 		<h1>New deck: {activeDeck}</h1>
 
-		<PrimaryLink to="/home">Go home</PrimaryLink>
-	</StyledActiveDeckPage>
+		<Link to="/home">Go home</Link>
+	</Box>
 )
 
 export default ActiveDeckPage
