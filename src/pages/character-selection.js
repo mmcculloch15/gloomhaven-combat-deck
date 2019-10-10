@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import characters from '../data/characters.data'
 import { CharacterSelectionLink } from '../elements/links'
 
-const CharacterSelectionWrapper = styled.section`
+const StyledCharacterSelection = styled.section`
 	border: 1px solid red;
 	height: 90vh;
 	margin: 0 auto;
@@ -12,14 +12,17 @@ const CharacterSelectionWrapper = styled.section`
 `
 
 const CharacterSelection = ({ match }) => (
-	<CharacterSelectionWrapper>
+	<StyledCharacterSelection>
 		<h1>Select your character</h1>
 		{characters.map(character => (
-			<CharacterSelectionLink key={character.class} to={`${match.path}/${character.class}`}>
+			<CharacterSelectionLink
+				key={character.class}
+				to={`${match.path}/${character.class}`}
+			>
 				{character.displayName}
 			</CharacterSelectionLink>
 		))}
-	</CharacterSelectionWrapper>
+	</StyledCharacterSelection>
 )
 
 export default CharacterSelection
