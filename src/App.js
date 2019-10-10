@@ -3,6 +3,7 @@ import './App.css'
 import CharacterSelectionPage from './pages/character-selection'
 import CharacterOverviewPage from './pages/character-overview'
 import ActiveDeckPage from './pages/active-deck'
+import HomePage from './pages/home'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 const App = () => {
@@ -13,15 +14,11 @@ const App = () => {
 			<Switch>
 				<Route
 					path={'/characters/:class'}
-					render={routeProps => (
-						<CharacterOverviewPage {...routeProps} setActiveDeck={setActiveDeck} />
-					)}
+					render={routeProps => <CharacterOverviewPage {...routeProps} setActiveDeck={setActiveDeck} />}
 				/>
 				<Route
 					path="/characters"
-					render={routeProps => (
-						<CharacterSelectionPage {...routeProps} setActiveDeck={setActiveDeck} />
-					)}
+					render={routeProps => <CharacterSelectionPage {...routeProps} setActiveDeck={setActiveDeck} />}
 				/>
 				<Route
 					path="/deck"
@@ -33,7 +30,7 @@ const App = () => {
 						)
 					}
 				/>
-				<Route path="/" render={() => <div>Home page!</div>} />
+				<Route path="/" render={routeProps => <HomePage {...routeProps} activeDeck={activeDeck} />} />
 			</Switch>
 		</Router>
 	)
