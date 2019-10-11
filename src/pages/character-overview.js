@@ -1,13 +1,13 @@
 import React from 'react'
 import characters from '../data/characters.data'
 import Link from '../components/Link'
-import { Box } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/core'
 
 const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 	const character = characters.find(character => character.class === match.params.class)
 
 	return (
-		<Box border="1px solid red" d="flex" flexDirection="column" h="90vh">
+		<Flex direction="column" h="90vh" border="1px solid red">
 			<h1>{character.displayName}</h1>
 			<ul>
 				{character.perks.map(perk => (
@@ -17,7 +17,7 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 			<Link to="/deck" onClick={() => setActiveDeck(character.class)}>
 				Start new deck
 			</Link>
-		</Box>
+		</Flex>
 	)
 }
 
