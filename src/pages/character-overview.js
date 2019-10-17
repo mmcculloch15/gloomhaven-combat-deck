@@ -14,7 +14,7 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 					<li>{perk.name}</li>
 				))}
 			</ul>
-			<Link to="/deck" onClick={() => setActiveDeck(character.class)}>
+			<Link to="/deck" onClick={() => setActiveDeck({ name: 'Test name', class: character.class })}>
 				Start new deck
 			</Link>
 		</Flex>
