@@ -1,6 +1,6 @@
 import React from 'react'
-import characters from '../data/characters.data'
-import Link from '../components/Link'
+import characters from '../../data/characters.data'
+import Link from '../../components/Link'
 import { Flex } from '@chakra-ui/core'
 
 const CharacterOverviewPage = ({ match, setActiveDeck }) => {
