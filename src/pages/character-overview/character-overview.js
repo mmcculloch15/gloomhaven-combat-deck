@@ -20,7 +20,11 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 			{character.perks.map((perk, i) => (
 				<Perk count={perk.count} name={perk.name} key={`perk${i}`} />
 			))}
-			<CTA to="/deck" onClick={() => setActiveDeck({ name: 'Test name', class: character.class })}>
+			<CTA
+				to="/deck"
+				onClick={() => setActiveDeck({ name: 'Test name', class: character.class })}
+				marginTop="3rem"
+			>
 				Start new deck
 			</CTA>
 		</Flex>
