@@ -1,15 +1,18 @@
 import React from 'react'
 import characters from '../../data/characters.data'
 import Link from '../../components/Link'
-import { Flex } from '@chakra-ui/core'
+import { Flex, Icon } from '@chakra-ui/core'
+import ClassCard from './ClassCard'
 
 const CharacterSelection = ({ match }) => (
-	<Flex direction="column" h="90vh" border="1px solid red">
+	<>
 		<h1>Select your character</h1>
-		{characters.map(character => (
-			<Link to={`${match.path}/${character.class}`}>{character.displayName}</Link>
-		))}
-	</Flex>
+		<Flex direction="column" w="90vw" margin="0 auto">
+			{characters.map(character => (
+				<ClassCard character={character} match={match} />
+			))}
+		</Flex>
+	</>
 )
 
 export default CharacterSelection
