@@ -15,7 +15,7 @@ const HomePage = ({ activeDeck, setActiveDeck, savedCharacters }) => (
 		) : (
 			<Text fontSize="md">Create your first character!</Text>
 		)}
-		<CTA to="/characters">Create new character</CTA>
+		<CTA to="/character-selection">Create new character</CTA>
 	</Flex>
 )
 
