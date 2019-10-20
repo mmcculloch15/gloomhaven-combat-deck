@@ -6,9 +6,9 @@ import CharacterGroup from './CharacterGroup'
 //TODO: Style state where savedCharacters == 0
 
 const HomePage = ({ activeDeck, setActiveDeck, savedCharacters }) => (
-	<Flex direction="column" justify="space-between" padding="0.5rem">
-		<Heading as="h1" marginBottom="36px">
-			App!
+	<Flex direction="column" justify="space-between" p="0.5rem">
+		<Heading as="h1" mb="3rem">
+			Combat deck
 		</Heading>
 		{savedCharacters.length > 0 ? (
 			<CharacterGroup savedCharacters={savedCharacters} setActiveDeck={setActiveDeck} />
