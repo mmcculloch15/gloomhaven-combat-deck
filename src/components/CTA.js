@@ -5,8 +5,6 @@ const CTA = ({ children, to }, ...props) => (
 	<Link
 		bg="green.400"
 		width="100%"
-		maxW="90vw"
-		margin="0 auto"
 		fontSize="lg"
 		borderRadius="8px"
 		textAlign="center"

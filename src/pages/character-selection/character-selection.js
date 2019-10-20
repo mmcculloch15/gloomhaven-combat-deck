@@ -6,7 +6,7 @@ import ClassCard from './ClassCard'
 const CharacterSelection = ({ match }) => (
 	<>
 		<h1>Select your character</h1>
-		<Flex direction="column" w="90vw" margin="0 auto">
+		<Flex direction="column" padding="8px">
 			{characters.map(character => (
 				<ClassCard character={character} match={match} />
 			))}

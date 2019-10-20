@@ -16,7 +16,6 @@ const CharacterCard = ({ name, characterClass, setActiveDeck }, ...props) => {
 				flexDirection="column"
 				borderRadius="8px"
 				border="1px solid black"
-				maxWidth="90vw"
 				margin="0 auto 1rem auto"
 				bg="#D8D8D8"
 				padding="1rem"
