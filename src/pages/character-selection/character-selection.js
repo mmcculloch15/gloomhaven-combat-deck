@@ -1,7 +1,6 @@
 import React from 'react'
 import characters from '../../data/characters.data'
-import Link from '../../components/Link'
-import { Flex, Icon } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/core'
 import ClassCard from './ClassCard'
 
 const CharacterSelection = ({ match }) => (

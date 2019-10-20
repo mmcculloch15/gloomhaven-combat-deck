@@ -5,7 +5,7 @@ import CharacterOverviewPage from './pages/character-overview'
 import ActiveDeckPage from './pages/active-deck/active-deck'
 import HomePage from './pages/home/home'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import { ThemeProvider, CSSReset, theme } from '@chakra-ui/core'
+import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import customTheme from './theme'
 
 const App = () => {
