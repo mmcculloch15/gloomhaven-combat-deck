@@ -9,7 +9,7 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 	const character = characters.find(character => character.class === match.params.class)
 
 	return (
-		<Flex direction="column" w="90vw" margin="0 auto">
+		<Flex direction="column" padding="0.5rem">
 			<Flex marginBottom="2rem">
 				<Icon name={character.class} size="32px" marginRight="0.5rem" />
 				<Heading as="h1">{capitalize(character.class)}</Heading>

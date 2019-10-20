@@ -6,7 +6,7 @@ import CharacterGroup from './CharacterGroup'
 //TODO: Style state where savedCharacters == 0
 
 const HomePage = ({ activeDeck, setActiveDeck, savedCharacters }) => (
-	<Flex direction="column" justify="space-between" padding="8px">
+	<Flex direction="column" justify="space-between" padding="0.5rem">
 		<Heading as="h1" marginBottom="36px">
 			App!
 		</Heading>

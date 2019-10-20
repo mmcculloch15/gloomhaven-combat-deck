@@ -3,7 +3,7 @@ import Link from '../../components/Link'
 import { Flex } from '@chakra-ui/core'
 
 const ActiveDeckPage = ({ activeDeck }) => (
-	<Flex direction="column" h="90vh" border="1px solid blue">
+	<Flex direction="column" padding="0.5rem">
 		<h1>
 			New deck: {activeDeck.name} -- {activeDeck.class}
 		</h1>
