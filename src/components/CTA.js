@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from './Link'
 
-const CTA = ({ children, to, onClick, marginTop }) => (
+const CTA = ({ children, to, onClick, mt }) => (
 	<Link
 		bg="green.400"
 		width="100%"
@@ -13,7 +13,7 @@ const CTA = ({ children, to, onClick, marginTop }) => (
 		border="1px solid black"
 		to={to}
 		onClick={onClick}
-		marginTop={marginTop}
+		mt={mt}
 	>
 		{children}
 	</Link>
