@@ -7,17 +7,16 @@ const ClassCard = ({ match, character }) => (
 		<PseudoBox
 			display="flex"
 			justifyContent="center"
-			height="70px"
+			h="70px"
+			w="100%"
 			border="1px solid black"
 			borderRadius="8px"
 			bg="#D8D8D8"
-			width="100%"
-			marginBottom="1rem"
-			padding="1rem"
+			mb="1rem"
+			p="1rem"
 		>
-
-			<Icon name={character.class} size="24px" marginRight="8px"/>
-      <Text fontSize="lg" textAlign="center">
+			<Icon name={character.class} size="1.5rem" mr="0.5rem" />
+			<Text fontSize="lg" textAlign="center">
 				{character.displayName}
 			</Text>
 		</PseudoBox>

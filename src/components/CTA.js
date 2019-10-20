@@ -4,12 +4,12 @@ import Link from './Link'
 const CTA = ({ children, to, onClick, mt }) => (
 	<Link
 		bg="green.400"
-		width="100%"
+		w="100%"
 		fontSize="lg"
 		borderRadius="8px"
 		textAlign="center"
 		textDecoration="none"
-		padding="0.5rem"
+		p="0.5rem"
 		border="1px solid black"
 		to={to}
 		onClick={onClick}

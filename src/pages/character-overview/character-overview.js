@@ -13,7 +13,7 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 	return (
 		<Flex direction="column" p="0.5rem">
 			<Flex mb="2rem">
-				<Icon name={character.class} size="48px" mr="1rem" />
+				<Icon name={character.class} size="3rem" mr="1rem" />
 				<Heading as="h1" fontSize="40px">
 					{capitalize(character.class)}
 				</Heading>

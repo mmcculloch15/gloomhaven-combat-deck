@@ -16,15 +16,15 @@ const CharacterCard = ({ name, characterClass, setActiveDeck }, ...props) => {
 				flexDirection="column"
 				borderRadius="8px"
 				border="1px solid black"
-				margin="0 auto 1rem auto"
+				m="0 auto 1rem auto"
 				bg="#D8D8D8"
-				padding="1rem"
+				p="1rem"
 			>
 				<Flex justify="space-between">
-					<Text as="span" fontSize="lg" marginBottom="0.5rem">
+					<Text as="span" fontSize="lg" mb="0.5rem">
 						{name}
 					</Text>
-					<Icon name={characterClass} size="24px" marginRight="8px" />
+					<Icon name={characterClass} size="24px" mr="8px" />
 				</Flex>
 				<Text fontSize="sm" alignSelf="flex-end">
 					{capitalize(characterClass)}

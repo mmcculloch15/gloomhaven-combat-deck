@@ -4,7 +4,7 @@ import CharacterCard from './CharacterCard'
 
 const CharacterGroup = ({ savedCharacters, setActiveDeck }) => (
 	<>
-		<Heading as="h2" marginBottom="16px" fontSize="xl" margin="0 auto 16px auto">
+		<Heading as="h2" mb="1rem" fontSize="xl" m="0 auto 16px auto">
 			Characters
 		</Heading>
 		{savedCharacters.map((character, i) => (
