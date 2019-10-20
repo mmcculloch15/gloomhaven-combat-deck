@@ -5,7 +5,8 @@ import CharacterOverviewPage from './pages/character-overview'
 import ActiveDeckPage from './pages/active-deck/active-deck'
 import HomePage from './pages/home/home'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import { ThemeProvider, CSSReset, theme } from '@chakra-ui/core'
+import customTheme from './theme'
 
 const App = () => {
 	const [activeDeck, setActiveDeck] = useState({
@@ -17,25 +18,25 @@ const App = () => {
 	const [savedCharacters] = useState([
 		{
 			name: 'Lance Tanzarian',
-			class: 'Savvas Cragheart',
+			class: 'cragheart',
 		},
 		{
 			name: 'Daria Fendergraf',
-			class: 'Inox Brute',
+			class: 'brute',
 		},
 	])
 
 	return (
-		<ThemeProvider>
+		<ThemeProvider theme={customTheme}>
 			<CSSReset />
 			<Router>
 				<Switch>
 					<Route
-						path={'/characters/:class'}
+						path={'/character-selection/:class'}
 						render={routeProps => <CharacterOverviewPage {...routeProps} setActiveDeck={setActiveDeck} />}
 					/>
 					<Route
-						path="/characters"
+						path="/character-selection"
 						render={routeProps => <CharacterSelectionPage {...routeProps} setActiveDeck={setActiveDeck} />}
 					/>
 					<Route
