@@ -18,10 +18,10 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 					{capitalize(character.class)}
 				</Heading>
 			</Flex>
-			<Text as="label" fontSize="xl" fontWeight="bold" mb="0.25rem">
+			<Text as="label" fontSize="xl" fontWeight="bold" mb="0.25rem" htmlFor="deckName">
 				Character Name
 			</Text>
-			<Input variant="outline" value={deckName} onChange={handleChange} mb="1rem" />
+			<Input id="deckName" variant="outline" value={deckName} onChange={handleChange} mb="1rem" />
 			<Heading as="h2" fontSize="xl" mb="0.5rem">
 				Perks
 			</Heading>
