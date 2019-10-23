@@ -1,15 +1,34 @@
 //TODO: Maybe image links?
 
-const BASE_COMBAT_DECK = {
-  "null": 1,
-  "x2": 1,
-  "+2": 1,
-  "+1": 5,
-  "+0": 6,
-  "-1": 5,
-  "-2": 1,
-}
+const BASE_COMBAT_DECK = [
+	{
+		type: 'null',
+		count: 1,
+	},
+	{
+		type: 'timesTwo',
+		count: 1,
+	},
+	{
+		type: 'plusTwo',
+		count: 1,
+	},
+	{
+		type: 'plusOne',
+		count: 5,
+	},
+	{
+		type: 'zero',
+		count: 6,
+	},
+	{
+		type: 'minusOne',
+		count: 5,
+	},
+	{
+		type: 'minusTwo',
+		count: 1,
+	},
+]
 
 export default BASE_COMBAT_DECK
-
-
