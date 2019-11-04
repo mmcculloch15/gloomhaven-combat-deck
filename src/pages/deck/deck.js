@@ -5,7 +5,7 @@ import CombatCard from '../../components/CombatCard'
 
 const ActiveDeckPage = ({ activeDeck }) => (
 	<Flex direction="column" p="0.5rem">
-		<Heading as="h1" fontSize="xl">
+		<Heading as="h1" fontSize="xl" mb="2rem">
 			{activeDeck.name}
 		</Heading>
 		<Grid templateColumns="1fr 1fr" gap="1rem">
