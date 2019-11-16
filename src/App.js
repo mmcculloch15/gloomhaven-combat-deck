@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import CharacterSelectionPage from './pages/character-selection'
-import StartNewCharacterPage from './pages/character-overview'
+import StartNewCharacterPage from './pages/start-new-character'
 import ActiveDeckPage from './pages/deck/'
 import HomePage from './pages/home/home'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import customTheme from './theme'
 import BASE_COMBAT_DECK from './data/base-combat-deck.data'
+import PERKS from './data/perks.data'
 
 const App = () => {
 	const [activeDeck, setActiveDeck] = useState({
 		name: 'Lance Tanzarian',
 		class: 'cragheart',
 		cards: BASE_COMBAT_DECK,
+		perks: PERKS.cragheart,
 	})
 
 	//app will need to load in saved characters somehow, but let's assume they are here now
@@ -48,7 +50,7 @@ const App = () => {
 							activeDeck === '' ? (
 								<Redirect to="/" />
 							) : (
-								<ActiveDeckPage {...routeProps} activeDeck={activeDeck} />
+								<ActiveDeckPage {...routeProps} activeDeck={activeDeck} setActiveDeck={setActiveDeck} />
 							)
 						}
 					/>

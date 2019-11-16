@@ -5,6 +5,7 @@ import { Flex, Icon, Heading, Input, Text } from '@chakra-ui/core'
 import { capitalize } from '../../utils/helpers'
 import CTA from '../../components/CTA'
 import BASE_COMBAT_DECK from '../../data/base-combat-deck.data'
+import PERKS from '../../data/perks.data'
 
 const StartNewCharacterPage = ({ match, setActiveDeck }) => {
 	const [deckName, setDeckName] = useState('')
@@ -26,12 +27,19 @@ const StartNewCharacterPage = ({ match, setActiveDeck }) => {
 			<Heading as="h2" fontSize="xl" mb="0.5rem">
 				Perks
 			</Heading>
-			{character.perks.map((perk, i) => (
+			{PERKS[character.class].map((perk, i) => (
 				<Perk count={perk.count} name={perk.name} key={`perk${i}`} />
 			))}
 			<CTA
 				to="/deck"
-				onClick={() => setActiveDeck({ name: deckName, class: character.class, cards: BASE_COMBAT_DECK })}
+				onClick={() =>
+					setActiveDeck({
+						name: deckName,
+						class: character.class,
+						cards: BASE_COMBAT_DECK,
+						perks: PERKS[character.class],
+					})
+				}
 				mt="3rem"
 			>
 				Start new deck
