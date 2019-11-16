@@ -1,26 +1,40 @@
 import React from 'react'
-import { Flex, Badge } from '@chakra-ui/core'
+import { Icon, Box } from '@chakra-ui/core'
 
 //Maybe use the `copy` icon here instead, with a number on it? Might just look nicer, and takes up less space than a badgeo
 
-const CombatCard = ({ type, count }) => (
-	<Flex direction="column" w="100%" h="100px" border="1px solid black" borderRadius="8px">
+const CombatCard = ({ type, count, image }) => (
+	<Box
+		direction="column"
+		w="100%"
+		h="8rem"
+		border="1px solid black"
+		borderRadius="8px"
+		backgroundImage={`url(${image})`}
+		backgroundSize="100% 100%"
+		backgroundPosition="center"
+		pt="65%" //this locks the CombatCard to a particular aspect ratios
+		position="relative" //this is so we can absolutely position the count box below, to account for the aspect ratio scaling above
+	>
 		{count > 1 ? (
-			<Badge
-				variant="solid"
-				variantColor="green"
-				ml="60%"
-				mt="70px"
-				width="80px"
-				height="20px"
+			<Box
+				bg="green.500"
+				left="-1px"
+				top="-1px"
+				w="2.5rem"
+				h="2rem"
+				p="0.25rem"
+				color="white"
+				position="absolute"
+				borderTopLeftRadius="8px"
+				borderBottomRightRadius="8px"
 				textAlign="center"
-				border="1px 0px 1px 1px solid black"
-				alignSelf="flex-end"
 			>
-				{count} copies
-			</Badge>
+				{count}
+				<Icon name="copy" size="1rem" ml="0.25rem" mb="2px" />
+			</Box>
 		) : null}
-	</Flex>
+	</Box>
 )
 
 export default CombatCard
