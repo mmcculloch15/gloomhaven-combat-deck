@@ -6,7 +6,7 @@ import { capitalize } from '../../utils/helpers'
 import CTA from '../../components/CTA'
 import BASE_COMBAT_DECK from '../../data/base-combat-deck.data'
 
-const CharacterOverviewPage = ({ match, setActiveDeck }) => {
+const StartNewCharacterPage = ({ match, setActiveDeck }) => {
 	const [deckName, setDeckName] = useState('')
 	const handleChange = event => setDeckName(event.target.value)
 	const character = characters.find(character => character.class === match.params.class)
@@ -40,4 +40,4 @@ const CharacterOverviewPage = ({ match, setActiveDeck }) => {
 	)
 }
 
-export default CharacterOverviewPage
+export default StartNewCharacterPage

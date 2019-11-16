@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CharacterSelectionPage from './pages/character-selection'
-import CharacterOverviewPage from './pages/character-overview'
+import StartNewCharacterPage from './pages/character-overview'
 import ActiveDeckPage from './pages/deck/'
 import HomePage from './pages/home/home'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
@@ -36,7 +36,7 @@ const App = () => {
 				<Switch>
 					<Route
 						path={'/character-selection/:class'}
-						render={routeProps => <CharacterOverviewPage {...routeProps} setActiveDeck={setActiveDeck} />}
+						render={routeProps => <StartNewCharacterPage {...routeProps} setActiveDeck={setActiveDeck} />}
 					/>
 					<Route
 						path="/character-selection"
