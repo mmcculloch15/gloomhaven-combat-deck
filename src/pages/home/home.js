@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex, Heading, Text } from '@chakra-ui/core'
-import CTA from '../../components/CTA'
+import CTA from 'components/CTA'
 import CharacterGroup from './CharacterGroup'
 
 //TODO: Style state where savedCharacters == 0

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import characters from '../../data/characters.data'
+import characters from 'data/characters.data'
 import Perk from './Perk'
 import { Flex, Icon, Heading, Input, Text } from '@chakra-ui/core'
-import { capitalize } from '../../utils/helpers'
-import CTA from '../../components/CTA'
-import BASE_COMBAT_DECK from '../../data/base-combat-deck.data'
-import PERKS from '../../data/perks.data'
+import { capitalize } from 'utils/helpers'
+import CTA from 'components/CTA'
+import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
+import PERKS from 'data/perks.data'
 
 const StartNewCharacterPage = ({ match, setActiveDeck }) => {
 	const [deckName, setDeckName] = useState('')
@@ -23,7 +23,13 @@ const StartNewCharacterPage = ({ match, setActiveDeck }) => {
 			<Text as="label" fontSize="xl" fontWeight="bold" mb="0.25rem" htmlFor="deckName">
 				Character Name
 			</Text>
-			<Input id="deckName" variant="outline" value={deckName} onChange={handleChange} mb="1rem" />
+			<Input
+				id="deckName"
+				variant="outline"
+				value={deckName}
+				onChange={handleChange}
+				mb="1rem"
+			/>
 			<Heading as="h2" fontSize="xl" mb="0.5rem">
 				Perks
 			</Heading>

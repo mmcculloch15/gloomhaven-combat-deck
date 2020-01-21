@@ -1,11 +1,11 @@
 import React from 'react'
 import { Flex, PseudoBox, Text, Icon } from '@chakra-ui/core'
-import Link from '../../components/Link'
-import { capitalize } from '../../utils/helpers'
+import Link from 'components/Link'
+import { capitalize } from 'utils/helpers'
 
 //TODO: remove this when no longer necessary
-import BASE_COMBAT_DECK from '../../data/base-combat-deck.data'
-import PERKS from '../../data/perks.data'
+import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
+import PERKS from 'data/perks.data'
 
 //TODO: Clean up the naming of characters/classes/display names.  It's pretty verbose/annoying/not even clear
 //Look up what Gloomhaven calls them

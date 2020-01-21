@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from '../../components/Link'
+import Link from 'components/Link'
 import { Flex, Heading, Grid, Checkbox } from '@chakra-ui/core'
-import CombatCard from '../../components/CombatCard'
+import CombatCard from 'components/CombatCard'
 
 const ActiveDeckPage = ({ activeDeck, setActiveDeck }) => {
 	const handlePerkChange = e => {

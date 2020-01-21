@@ -1,5 +1,5 @@
 import React from 'react'
-import characters from '../../data/characters.data'
+import characters from 'data/characters.data'
 import { Flex } from '@chakra-ui/core'
 import ClassCard from './ClassCard'
 

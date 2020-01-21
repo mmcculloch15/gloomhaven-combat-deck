@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import CharacterSelectionPage from './pages/character-selection'
-import StartNewCharacterPage from './pages/start-new-character'
-import ActiveDeckPage from './pages/deck/'
-import HomePage from './pages/home/home'
+import CharacterSelectionPage from 'pages/character-selection'
+import StartNewCharacterPage from 'pages/start-new-character'
+import ActiveDeckPage from 'pages/deck/'
+import HomePage from 'pages/home/home'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
-import customTheme from './theme'
-import BASE_COMBAT_DECK from './data/base-combat-deck.data'
-import PERKS from './data/perks.data'
-import PageContainer from './components/PageContainer'
-import './App.css'
+import customTheme from 'theme'
+import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
+import PERKS from 'data/perks.data'
+import PageContainer from 'components/PageContainer'
+import 'App.css'
 
 const App = () => {
 	const [activeDeck, setActiveDeck] = useState({
@@ -37,39 +37,47 @@ const App = () => {
 		<ThemeProvider theme={customTheme}>
 			<CSSReset />
 			<PageContainer>
-			<Router>
-				<Switch>
-					<Route
-						path={'/character-selection/:class'}
-						render={routeProps => <StartNewCharacterPage {...routeProps} setActiveDeck={setActiveDeck} />}
-					/>
-					<Route
-						path="/character-selection"
-						render={routeProps => <CharacterSelectionPage {...routeProps} setActiveDeck={setActiveDeck} />}
-					/>
-					<Route
-						path="/deck"
-						render={routeProps =>
-							activeDeck === '' ? (
-								<Redirect to="/" />
-							) : (
-								<ActiveDeckPage {...routeProps} activeDeck={activeDeck} setActiveDeck={setActiveDeck} />
-							)
-						}
-					/>
-					<Route
-						path="/"
-						render={routeProps => (
-							<HomePage
-								{...routeProps}
-								activeDeck={activeDeck}
-								setActiveDeck={setActiveDeck}
-								savedCharacters={savedCharacters}
-							/>
-						)}
-					/>
-				</Switch>
-			</Router>
+				<Router>
+					<Switch>
+						<Route
+							path={'/character-selection/:class'}
+							render={routeProps => (
+								<StartNewCharacterPage {...routeProps} setActiveDeck={setActiveDeck} />
+							)}
+						/>
+						<Route
+							path="/character-selection"
+							render={routeProps => (
+								<CharacterSelectionPage {...routeProps} setActiveDeck={setActiveDeck} />
+							)}
+						/>
+						<Route
+							path="/deck"
+							render={routeProps =>
+								activeDeck === '' ? (
+									<Redirect to="/" />
+								) : (
+									<ActiveDeckPage
+										{...routeProps}
+										activeDeck={activeDeck}
+										setActiveDeck={setActiveDeck}
+									/>
+								)
+							}
+						/>
+						<Route
+							path="/"
+							render={routeProps => (
+								<HomePage
+									{...routeProps}
+									activeDeck={activeDeck}
+									setActiveDeck={setActiveDeck}
+									savedCharacters={savedCharacters}
+								/>
+							)}
+						/>
+					</Switch>
+				</Router>
 			</PageContainer>
 		</ThemeProvider>
 	)
