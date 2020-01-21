@@ -12,7 +12,7 @@ const CombatCard = ({ type, count, image }) => (
 		backgroundImage={`url(${image})`}
 		backgroundSize="100% 100%"
 		backgroundPosition="center"
-		pt="63%" //this locks the CombatCard to a particular aspect ratios
+		pt="63%" //this locks the CombatCard to a particular aspect ratio
 		position="relative" //this is so we can absolutely position the count box below, to account for the aspect ratio scaling above
 	>
 		{count > 1 ? (
