@@ -18,7 +18,7 @@ const ActiveDeckPage = ({ activeDeck, setActiveDeck }) => {
 					My perk
 				</Checkbox>
 			</Flex>
-			<Grid templateColumns="1fr 1fr" gap="1rem" width={['100%', '100%', '30%']}>
+			<Grid templateColumns="1fr 1fr" gap="1rem" width={['100%', '100%', '50%']}>
 				{activeDeck.cards.map(card => (
 					<CombatCard type={card.type} count={card.count} image={card.image} />
 				))}

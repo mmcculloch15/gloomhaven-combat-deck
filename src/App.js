@@ -8,6 +8,8 @@ import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import customTheme from './theme'
 import BASE_COMBAT_DECK from './data/base-combat-deck.data'
 import PERKS from './data/perks.data'
+import PageContainer from './components/PageContainer'
+import './App.css'
 
 const App = () => {
 	const [activeDeck, setActiveDeck] = useState({
@@ -34,6 +36,7 @@ const App = () => {
 	return (
 		<ThemeProvider theme={customTheme}>
 			<CSSReset />
+			<PageContainer>
 			<Router>
 				<Switch>
 					<Route
@@ -67,6 +70,7 @@ const App = () => {
 					/>
 				</Switch>
 			</Router>
+			</PageContainer>
 		</ThemeProvider>
 	)
 }
