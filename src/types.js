@@ -20,7 +20,7 @@ export const perkType = shape({
 })
 
 export const characterType = shape({
-  name: string.isRequired,
+  displayName: string.isRequired,
   class: string.isRequired,
   cards: arrayOf(cardType),
 })

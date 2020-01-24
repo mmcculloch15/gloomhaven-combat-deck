@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { characterType } from 'types'
 import { PseudoBox, Text, Icon } from '@chakra-ui/core'
 import { useRouteMatch } from 'react-router-dom'

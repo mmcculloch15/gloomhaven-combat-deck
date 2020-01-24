@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Flex, Box, Text } from '@chakra-ui/core'
 
 // ? Could we use the same component to track actual perk checkmarks?
@@ -10,5 +11,11 @@ const Perk = ({ count, name, isDisplay }) => (
     <Text>{name}</Text>
   </Flex>
 )
+
+Perk.propTypes = {
+  count: PropTypes.any,
+  name: PropTypes.any,
+  isDisplay: PropTypes.any,
+}
 
 export default Perk
