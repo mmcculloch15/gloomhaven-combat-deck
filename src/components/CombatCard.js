@@ -1,5 +1,7 @@
 import React from 'react'
 import { Icon, Box } from '@chakra-ui/core'
+import { getImageFromType } from 'data/base-combat-deck.data'
+import { cardType } from 'types'
 
 // Maybe use the `copy` icon here instead, with a number on it? Might just look nicer, and takes up less space than a badge
 
@@ -9,7 +11,7 @@ const CombatCard = ({ type, count, image }) => (
     w="100%"
     border="1px solid black"
     borderRadius="8px"
-    backgroundImage={`url(${image})`}
+    backgroundImage={`url(${getImageFromType(type)})`}
     backgroundSize="100% 100%"
     backgroundPosition="center"
     pt="63%" // this locks the CombatCard to a particular aspect ratio
@@ -35,5 +37,7 @@ const CombatCard = ({ type, count, image }) => (
     ) : null}
   </Box>
 )
+
+CombatCard.propTypes = cardType
 
 export default CombatCard

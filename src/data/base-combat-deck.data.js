@@ -46,4 +46,6 @@ const BASE_COMBAT_DECK = [
   },
 ]
 
+export const getImageFromType = type => BASE_COMBAT_DECK.find(card => card.type === type).image
+
 export default BASE_COMBAT_DECK

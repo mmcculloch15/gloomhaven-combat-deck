@@ -5,15 +5,34 @@ import { capitalize } from 'utils/helpers'
 import CTA from 'components/CTA'
 import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
 import PERKS from 'data/perks.data'
-import { useRouteMatch } from 'react-router-dom'
+import { useRouteMatch, useHistory } from 'react-router-dom'
 import { setActiveDeckType } from 'types'
+import { firestore } from 'firebaseUtils'
 import Perk from './Perk'
 
 const StartNewCharacterPage = ({ setActiveDeck }) => {
   const [deckName, setDeckName] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const match = useRouteMatch()
+  const history = useHistory()
   const handleChange = event => setDeckName(event.target.value)
   const character = characters.find(character => character.class === match.params.class)
+
+  const createNewDeck = async () => {
+    setIsLoading(true)
+    try {
+      const deckRef = await firestore.collection('decks').add({
+        name: deckName,
+        class: character.class,
+        cards: BASE_COMBAT_DECK.map(card => ({ type: card.type, count: card.count })),
+        perks: PERKS[character.class],
+      })
+      history.push(`/deck/${deckRef.id}`)
+    } catch (error) {
+      console.log(error)
+      setIsLoading(false)
+    }
+  }
 
   return (
     <Flex direction="column" p="0.5rem">
@@ -33,18 +52,7 @@ const StartNewCharacterPage = ({ setActiveDeck }) => {
       {PERKS[character.class].map((perk, i) => (
         <Perk count={perk.count} name={perk.name} key={`perk${i}`} />
       ))}
-      <CTA
-        to="/deck"
-        onClick={() =>
-          setActiveDeck({
-            name: deckName,
-            class: character.class,
-            cards: BASE_COMBAT_DECK,
-            perks: PERKS[character.class],
-          })
-        }
-        mt="3rem"
-      >
+      <CTA type="button" onClick={createNewDeck} mt="3rem" isLoading>
         Start new deck
       </CTA>
     </Flex>

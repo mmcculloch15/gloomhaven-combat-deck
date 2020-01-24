@@ -7,13 +7,13 @@ import CharacterGroup from './CharacterGroup'
 
 // TODO: Style state where savedCharacters == 0
 
-const HomePage = ({ setActiveDeck, savedCharacters }) => (
+const HomePage = ({ savedCharacters }) => (
   <Flex direction="column" justify="space-between" p="0.5rem">
     <Heading as="h1" mb="3rem">
       Combat deck
     </Heading>
     {savedCharacters.length > 0 ? (
-      <CharacterGroup savedCharacters={savedCharacters} setActiveDeck={setActiveDeck} />
+      <CharacterGroup savedCharacters={savedCharacters} />
     ) : (
       <Text fontSize="md">Create your first character!</Text>
     )}
@@ -22,7 +22,6 @@ const HomePage = ({ setActiveDeck, savedCharacters }) => (
 )
 
 HomePage.propTypes = {
-  setActiveDeck: PropTypes.func.isRequired,
   savedCharacters: PropTypes.arrayOf(characterType),
 }
 

@@ -10,9 +10,10 @@ import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
 import PERKS from 'data/perks.data'
 import PageContainer from 'components/PageContainer'
 import 'App.css'
+import ActiveDeckProvider from 'providers/ActiveDeckProvider'
 
 const App = () => {
-  const [activeDeck, setActiveDeck] = useState({
+  const [activeDeck, setDeck] = useState({
     name: 'Lance Tanzarian',
     class: 'cragheart',
     cards: BASE_COMBAT_DECK,
@@ -33,44 +34,28 @@ const App = () => {
     },
   ])
 
+  const setActiveDeck = deck => {
+    setDeck({ ...deck })
+  }
+
   return (
     <ThemeProvider theme={customTheme}>
-      <CSSReset />
-      <PageContainer>
-        <Router>
-          <Switch>
-            <Route
-              path="/character-selection/:class"
-              render={routeProps => <StartNewCharacterPage {...routeProps} setActiveDeck={setActiveDeck} />}
-            />
-            <Route
-              path="/character-selection"
-              render={routeProps => <CharacterSelectionPage {...routeProps} setActiveDeck={setActiveDeck} />}
-            />
-            <Route
-              path="/deck"
-              render={routeProps =>
-                activeDeck === '' ? (
-                  <Redirect to="/" />
-                ) : (
-                  <ActiveDeckPage {...routeProps} activeDeck={activeDeck} setActiveDeck={setActiveDeck} />
-                )
-              }
-            />
-            <Route
-              path="/"
-              render={routeProps => (
-                <HomePage
-                  {...routeProps}
-                  activeDeck={activeDeck}
-                  setActiveDeck={setActiveDeck}
-                  savedCharacters={savedCharacters}
-                />
-              )}
-            />
-          </Switch>
-        </Router>
-      </PageContainer>
+      <ActiveDeckProvider value={{ activeDeck, setActiveDeck }}>
+        <CSSReset />
+        <PageContainer>
+          <Router>
+            <Switch>
+              <Route
+                path="/character-selection/:class"
+                render={routeProps => <StartNewCharacterPage {...routeProps} />}
+              />
+              <Route path="/character-selection" render={routeProps => <CharacterSelectionPage {...routeProps} />} />
+              <Route path="/deck/:deckId" component={ActiveDeckPage} />
+              <Route path="/" render={routeProps => <HomePage {...routeProps} savedCharacters={savedCharacters} />} />
+            </Switch>
+          </Router>
+        </PageContainer>
+      </ActiveDeckProvider>
     </ThemeProvider>
   )
 }
