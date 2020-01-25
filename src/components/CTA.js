@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 import Link from './Link'
 
-const CTA = ({ children, to, onClick, mt, type = 'link' }) => {
+const CTA = ({ children, to, onClick, mt, type = 'link', isLoading = false }) => {
   const styles = {
     bg: 'green.400',
     w: '100%',
@@ -19,7 +19,11 @@ const CTA = ({ children, to, onClick, mt, type = 'link' }) => {
   }
 
   if (type === 'button') {
-    return <Button {...styles}>{children}</Button>
+    return (
+      <Button {...styles} isLoading={isLoading}>
+        {children}
+      </Button>
+    )
   }
   if (type === 'link') {
     return <Link {...styles}>{children}</Link>
