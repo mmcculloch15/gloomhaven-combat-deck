@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Link from 'components/Link'
-import { deckType } from 'types'
 import { Flex, Heading, Grid, Checkbox } from '@chakra-ui/core'
 import CombatCard from 'components/CombatCard'
 import { ActiveDeckContext } from 'providers/ActiveDeckProvider'
