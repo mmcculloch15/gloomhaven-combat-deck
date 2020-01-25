@@ -24,7 +24,7 @@ const StartNewCharacterPage = ({ setActiveDeck }) => {
       const deckRef = await firestore.collection('decks').add({
         name: deckName,
         class: character.class,
-        cards: BASE_COMBAT_DECK.map(card => ({ type: card.type, count: card.count })),
+        deck: BASE_COMBAT_DECK.map(card => ({ type: card.type, count: card.count })),
         perks: PERKS[character.class],
       })
       history.push(`/deck/${deckRef.id}`)
@@ -52,7 +52,7 @@ const StartNewCharacterPage = ({ setActiveDeck }) => {
       {PERKS[character.class].map((perk, i) => (
         <Perk count={perk.count} name={perk.name} key={`perk${i}`} />
       ))}
-      <CTA type="button" onClick={createNewDeck} mt="3rem" isLoading>
+      <CTA type="button" onClick={createNewDeck} mt="3rem" isLoading={isLoading}>
         Start new deck
       </CTA>
     </Flex>
