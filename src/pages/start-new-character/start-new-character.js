@@ -23,7 +23,7 @@ const StartNewCharacterPage = () => {
       const deckRef = await firestore.collection('decks').add({
         name: deckName,
         class: character.class,
-        deck: BASE_COMBAT_DECK.map(card => ({ type: card.type, count: card.count })),
+        cards: BASE_COMBAT_DECK.map(card => ({ type: card.type, count: card.count })),
         perks: PERKS[character.class],
       })
       history.push(`/deck/${deckRef.id}`)

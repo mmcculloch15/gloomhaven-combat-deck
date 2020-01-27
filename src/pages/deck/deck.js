@@ -26,7 +26,7 @@ const ActiveDeckPage = () => {
     }
     fetchDeck()
   }, [deckId, setActiveDeck])
-  
+
   const handlePerkChange = () => {
     console.log('hi')
   }
