@@ -38,6 +38,8 @@ const CombatCard = ({ type, count, image }) => (
   </Box>
 )
 
-CombatCard.propTypes = cardType
+CombatCard.propTypes = {
+  ...cardType,
+}
 
 export default CombatCard

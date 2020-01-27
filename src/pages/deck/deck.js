@@ -26,6 +26,7 @@ const ActiveDeckPage = () => {
     }
     fetchDeck()
   }, [deckId, setActiveDeck])
+  
   const handlePerkChange = () => {
     console.log('hi')
   }
@@ -44,8 +45,8 @@ const ActiveDeckPage = () => {
         </Checkbox>
       </Flex>
       <Grid templateColumns="1fr 1fr" gap="1rem" width={['100%', '100%', '50%']}>
-        {activeDeck.cards.map(card => (
-          <CombatCard type={card.type} count={card.count} image={card.image} />
+        {activeDeck.cards.map((card, i) => (
+          <CombatCard type={card.type} count={card.count} key={`card-${i}`} />
         ))}
       </Grid>
       <Link to="/home">Go home</Link>

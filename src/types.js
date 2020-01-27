@@ -2,8 +2,7 @@ import { shape, string, number, arrayOf, object, bool, func } from 'prop-types'
 
 export const cardType = shape({
   type: string.isRequired,
-  count: number.isrequired,
-  image: string.isRequired,
+  count: number.isRequired,
 })
 
 export const deckType = shape({
