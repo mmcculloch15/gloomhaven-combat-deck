@@ -6,11 +6,10 @@ import CTA from 'components/CTA'
 import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
 import PERKS from 'data/perks.data'
 import { useRouteMatch, useHistory } from 'react-router-dom'
-import { setActiveDeckType } from 'types'
 import { firestore } from 'firebaseUtils'
 import Perk from './Perk'
 
-const StartNewCharacterPage = ({ setActiveDeck }) => {
+const StartNewCharacterPage = () => {
   const [deckName, setDeckName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const match = useRouteMatch()
@@ -57,10 +56,6 @@ const StartNewCharacterPage = ({ setActiveDeck }) => {
       </CTA>
     </Flex>
   )
-}
-
-StartNewCharacterPage.propTypes = {
-  setActiveDeck: setActiveDeckType,
 }
 
 export default StartNewCharacterPage
