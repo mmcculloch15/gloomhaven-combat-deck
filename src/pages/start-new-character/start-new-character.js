@@ -10,7 +10,7 @@ import { setActiveDeckType } from 'types'
 import { firestore } from 'firebaseUtils'
 import Perk from './Perk'
 
-const StartNewCharacterPage = ({ setActiveDeck }) => {
+const StartNewCharacterPage = () => {
   const [deckName, setDeckName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const match = useRouteMatch()
@@ -57,10 +57,6 @@ const StartNewCharacterPage = ({ setActiveDeck }) => {
       </CTA>
     </Flex>
   )
-}
-
-StartNewCharacterPage.propTypes = {
-  setActiveDeck: setActiveDeckType,
 }
 
 export default StartNewCharacterPage
