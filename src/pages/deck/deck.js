@@ -1,10 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Link from 'components/Link'
-import { Flex, Heading, Grid, Checkbox } from '@chakra-ui/core'
+import { Flex, Heading, Grid, Checkbox, CheckboxGroup } from '@chakra-ui/core'
 import CombatCard from 'components/CombatCard'
 import { ActiveDeckContext } from 'providers/ActiveDeckProvider'
 import { firestore } from 'firebaseUtils'
 import { useParams } from 'react-router-dom'
+import Perk from 'pages/start-new-character/Perk'
+import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
+import PERKS from 'data/perks.data'
+import PerkGroup from './PerkGroup'
 
 const ActiveDeckPage = () => {
   const [loading, setLoading] = useState(true)
@@ -14,9 +18,12 @@ const ActiveDeckPage = () => {
   useEffect(() => {
     const fetchDeck = async () => {
       try {
-        const deck = await firestore.doc(`decks/${deckId}`).get()
+        // const deck = await firestore.doc(`decks/${deckId}`).get()
         setActiveDeck({
-          ...deck.data(),
+          name: 'Lance Tanzarian',
+          class: 'cragheart',
+          cards: BASE_COMBAT_DECK,
+          perks: PERKS.cragheart,
         })
       } catch (error) {
         console.log(error)
@@ -25,24 +32,24 @@ const ActiveDeckPage = () => {
       }
     }
     fetchDeck()
-  }, [deckId, setActiveDeck])
+    // eslint-disable-next-line
+  }, [])
 
-  const handlePerkChange = () => {
-    console.log('hi')
+  const handlePerkChange = e => {
+    console.log(e.target.value)
   }
 
   if (loading) {
     return null
   }
+
   return (
     <Flex direction="column" p="0.5rem">
       <Heading as="h1" fontSize="xl" mb="2rem">
         {activeDeck.name}
       </Heading>
       <Flex direction="column" mb="1rem">
-        <Checkbox size="lg" onChange={handlePerkChange}>
-          My perk
-        </Checkbox>
+        <PerkGroup perks={activeDeck.perks} onChange={handlePerkChange} />
       </Flex>
       <Grid templateColumns="1fr 1fr" gap="1rem" width={['100%', '100%', '50%']}>
         {activeDeck.cards.map((card, i) => (
