@@ -5,8 +5,8 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/core'
 
 const PerkGroup = ({ perks, onChange }) => (
   <>
-    {perks.map(perk => (
-      <Checkbox size="lg" name={perk.name} value={perk.value} onChange={onChange}>
+    {perks.map((perk, i) => (
+      <Checkbox size="lg" name={`${perk.name}-${i}`} value={perk.active} onChange={e => onChange(e, perk)} perk={perk}>
         {perk.name}
       </Checkbox>
     ))}

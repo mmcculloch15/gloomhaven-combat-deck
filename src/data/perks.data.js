@@ -6,7 +6,7 @@ const PERKS = {
       effect: {
         minusOne: -2,
       },
-      active: false,
+      active: 0,
     },
     {
       name: 'Replace one -1 card with one +1 card',
@@ -15,7 +15,7 @@ const PERKS = {
         minusOne: -1,
         plusOne: 1,
       },
-      active: false,
+      active: 0,
     },
     {
       name: 'Add two +1 cards',
@@ -23,7 +23,7 @@ const PERKS = {
       effect: {
         plusOne: 2,
       },
-      active: false,
+      active: 0,
     },
   ],
   cragheart: [
@@ -33,7 +33,7 @@ const PERKS = {
       effect: {
         '+0': -4,
       },
-      active: false,
+      active: 0,
     },
     {
       name: 'Replace one -1 card with one +1 card',
@@ -42,7 +42,7 @@ const PERKS = {
         '-1': -1,
         '+1': 1,
       },
-      active: false,
+      active: 0,
     },
     {
       name: 'Add one -2 card and two +2 cards',
@@ -51,7 +51,7 @@ const PERKS = {
         '-2': -1,
         '+2': 2,
       },
-      active: false,
+      active: 0,
     },
   ],
 }

@@ -14,6 +14,7 @@ const ActiveDeckPage = () => {
   const [loading, setLoading] = useState(true)
   const { activeDeck, setActiveDeck } = useContext(ActiveDeckContext)
   const { deckId } = useParams()
+  console.log('ACTIVE DECK', activeDeck)
 
   useEffect(() => {
     const fetchDeck = async () => {
@@ -35,8 +36,17 @@ const ActiveDeckPage = () => {
     // eslint-disable-next-line
   }, [])
 
-  const handlePerkChange = e => {
-    console.log(e.target.value)
+  const handlePerkChange = (e, targetPerk) => {
+    const { checked } = e.target
+    const updatedPerks = activeDeck.perks
+    const targetPerkIndex = updatedPerks.findIndex(perk => perk.name === targetPerk.name)
+    if (checked) updatedPerks[targetPerkIndex].active++
+    else updatedPerks[targetPerkIndex].active--
+
+    setActiveDeck({
+      ...activeDeck,
+      perks: updatedPerks,
+    })
   }
 
   if (loading) {
