@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom'
 import Perk from 'pages/start-new-character/Perk'
 import BASE_COMBAT_DECK from 'data/base-combat-deck.data'
 import PERKS from 'data/perks.data'
+import { cloneDeep } from 'lodash'
 import PerkGroup from './PerkGroup'
 
 const ActiveDeckPage = () => {
@@ -40,8 +41,8 @@ const ActiveDeckPage = () => {
     const { checked } = e.target
 
     // Make copies of the arrays we'll change so we can set state at the end with new values
-    const updatedPerks = [...activeDeck.perks]
-    let updatedCards = [...activeDeck.cards]
+    const updatedPerks = cloneDeep(activeDeck.perks)
+    let updatedCards = cloneDeep(activeDeck.cards)
 
     // Find the correct perk and increment or decrement it's number of active perks (because their can be multiple)
     const targetPerkIndex = updatedPerks.findIndex(perk => perk.name === targetPerk.name)
@@ -50,7 +51,7 @@ const ActiveDeckPage = () => {
     const perkEffects = Object.entries(updatedPerks[targetPerkIndex].effect)
 
     // For each effect the perk has, find the card in activeDeck and modify it by the modifier amount
-    // TODO: Need to handle new cards being added, or cards being removed
+    // TODO: Need to handle new cards being added
     for (let effect of perkEffects) {
       let [perkCardType, perkCardModifier] = effect
       if (!checked) perkCardModifier *= -1
@@ -63,6 +64,8 @@ const ActiveDeckPage = () => {
     // set the updated deck back to state
     setActiveDeck({
       ...activeDeck,
+      cards: updatedCards,
+      perks: updatedPerks,
     })
   }
 
