@@ -31,7 +31,7 @@ const PERKS = {
       name: 'Remove four +0 cards',
       count: 1,
       effect: {
-        '+0': -4,
+        zero: -4,
       },
       active: 0,
     },
@@ -39,8 +39,8 @@ const PERKS = {
       name: 'Replace one -1 card with one +1 card',
       count: 2,
       effect: {
-        '-1': -1,
-        '+1': 1,
+        minusOne: -1,
+        plusOne: 1,
       },
       active: 0,
     },
@@ -48,8 +48,8 @@ const PERKS = {
       name: 'Add one -2 card and two +2 cards',
       count: 1,
       effect: {
-        '-2': -1,
-        '+2': 2,
+        minusTwo: 1,
+        plusTwo: 2,
       },
       active: 0,
     },
