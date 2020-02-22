@@ -1,7 +1,7 @@
 import React from 'react'
 import { perkType } from 'types'
 import PropTypes from 'prop-types'
-import { Checkbox, CheckboxGroup } from '@chakra-ui/core'
+import { Checkbox } from '@chakra-ui/core'
 
 const PerkGroup = ({ perks, onChange }) => (
   <>
