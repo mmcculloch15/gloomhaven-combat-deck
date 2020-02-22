@@ -38,14 +38,31 @@ const ActiveDeckPage = () => {
 
   const handlePerkChange = (e, targetPerk) => {
     const { checked } = e.target
-    const updatedPerks = activeDeck.perks
+
+    // Make copies of the arrays we'll change so we can set state at the end with new values
+    const updatedPerks = [...activeDeck.perks]
+    let updatedCards = [...activeDeck.cards]
+
+    // Find the correct perk and increment or decrement it's number of active perks (because their can be multiple)
     const targetPerkIndex = updatedPerks.findIndex(perk => perk.name === targetPerk.name)
     if (checked) updatedPerks[targetPerkIndex].active++
     else updatedPerks[targetPerkIndex].active--
+    const perkEffects = Object.entries(updatedPerks[targetPerkIndex].effect)
 
+    // For each effect the perk has, find the card in activeDeck and modify it by the modifier amount
+    // TODO: Need to handle new cards being added, or cards being removed
+    for (let effect of perkEffects) {
+      let [perkCardType, perkCardModifier] = effect
+      if (!checked) perkCardModifier *= -1
+      updatedCards = updatedCards.map(card => {
+        if (card.type === perkCardType) card.count += perkCardModifier
+        return card
+      })
+    }
+
+    // set the updated deck back to state
     setActiveDeck({
       ...activeDeck,
-      perks: updatedPerks,
     })
   }
 
@@ -62,9 +79,9 @@ const ActiveDeckPage = () => {
         <PerkGroup perks={activeDeck.perks} onChange={handlePerkChange} />
       </Flex>
       <Grid templateColumns="1fr 1fr" gap="1rem" width={['100%', '100%', '50%']}>
-        {activeDeck.cards.map((card, i) => (
-          <CombatCard type={card.type} count={card.count} key={`card-${i}`} />
-        ))}
+        {activeDeck.cards.map((card, i) =>
+          card.count !== 0 ? <CombatCard type={card.type} count={card.count} key={`card-${i}`} /> : null
+        )}
       </Grid>
       <Link to="/home">Go home</Link>
     </Flex>
