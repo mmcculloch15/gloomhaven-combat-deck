@@ -10,7 +10,7 @@ import minusTwo from 'assets/cards/minusTwo.png'
 
 const BASE_COMBAT_DECK = [
   {
-    type: 'null',
+    type: 'nullCard',
     count: 1,
     image: nullCard,
   },
